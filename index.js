@@ -18,7 +18,8 @@ function KareninAlani(kenaruzunlugu){
 }
 
 /* (Oto test yok) Yukarıdaki KareninAlani fonksiyonunu kenar uzunluğu = 10 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
-
+console.clear();
+console.log(KareninAlani(10));
 
 
 /* 	GÖREV 1:  
@@ -29,14 +30,14 @@ function KareninAlani(kenaruzunlugu){
 			4. Hesaplanan çemberin çevresi döndürülecektir.
 		*/
 
-function CemberinCevresi(/* kodlar buraya */){
-	/* kodlar buraya */
+function CemberinCevresi(yariCap){
+	return 2*pi*yariCap;
 }
 
 
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
-
+console.log(CemberinCevresi(10));
 
 
 /* 	GÖREV 2:  
@@ -47,10 +48,10 @@ function CemberinCevresi(/* kodlar buraya */){
 			4. Hesaplanan çemberin alanı döndürülecektir.
 		*/
 		
-function CemberinAlani(/* kodlar buraya */){
-	/* kodlar buraya */
+function CemberinAlani(yariCap){
+	return pi*Math.pow(yariCap,2);
 }
-
+console.log(CemberinAlani(10));
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
@@ -76,42 +77,81 @@ function CemberinAlani(/* kodlar buraya */){
 	var ucetambolunenler, enkucuk, enbuyuk, ucebolunenlerintoplami, besyuzdenkucuksayilar, siralisayilar, tekraredensayilar;
 	
 	//3a çözümü
-
-	/* kodlar buraya */
-	
+enkucuk=sayilar[0];
+enbuyuk=sayilar[0];
+for (let i=0; i<sayilar.length; i++){
+	if (sayilar[i]>enbuyuk){
+		enbuyuk=sayilar[i];
+	}
+	else if(sayilar[i]<enkucuk){
+		enkucuk=sayilar[i];
+		
+	}
+}
+	console.log('enbuyuk='+enbuyuk);
+	console.log('enkucuk='+enkucuk);
 	
 	
 	// 3b çözümü:
 
-	/* kodlar buraya */
-		
+	ucetambolunenler=[];
+	sayilar.forEach(function (sayi){
+		if(sayi % 3 == 0 ){
+			return ucetambolunenler.push(sayi);
+		}
+	})
+	console.log(ucetambolunenler);
 		
 		
 	//3c çözümü:
-	
-	/* kodlar buraya */
+	ucebolunenlerintoplami=ucetambolunenler.reduce(function(total,sayi){
+		return total+sayi;
 
-	
+	})
+	console.log(ucebolunenlerintoplami);
 	
 	//3d çözümü
 	
-	/* kodlar buraya */
+	besyuzdenkucuksayilar=sayilar.filter(function(sayi){
+		if (sayi<500){
+			return sayi;
 
+		}
+	})
+	console.log(besyuzdenkucuksayilar);
 
 
 	//3e çözümü
 
-	/* kodlar buraya */
-	
+siralisayilar=besyuzdenkucuksayilar.sort(function(a, b){return a - b});
+
 	
 	//3f çözümü
 	
-	/* kodlar buraya */
-
-
-
-
 	
+	console.clear();
+
+	let sayibul = {};
+	tekraredensayilar = [];
+	
+	for(let i=0; i<sayilar.length; i++){
+		if(typeof sayibul[sayilar[i]] == 'undefined'){
+			sayibul[sayilar[i]] = 1;
+		} else {
+			sayibul[sayilar[i]]++;
+		}
+	}
+	
+	for (let key in sayibul) {
+		if(sayibul[key]>1) {
+			tekraredensayilar.push(`${key} sayısı ${sayibul[key]} kere tekrar edilmiştir`)
+		}
+	};
+	
+	console.log(tekraredensayilar);
+	
+
+
 		
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
